@@ -63,15 +63,15 @@ pipeline {
 	 }
          
          post {
-        success {
-          emailext(
-            subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] NEW RELEASE",
-            body: """<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' NEW RELEASE":</p>
-            <p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
-            to: "eng.m.kamel.93@gmail.com"
-          )
+           success {
+            emailext(
+              subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] NEW RELEASE",
+              body: """<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' NEW RELEASE":</p>
+              <p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
+              to: "eng.m.kamel.93@gmail.com"
+            )
+          }
         }
-      }
     }
   }
 }
